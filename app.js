@@ -8,14 +8,14 @@ $(document).ready(function() {
         const beginDate = "&begin_date="; 
         const endDate = "&end_date=";
         
-        // Capture State Data
-        let query = $("#search-term").val();       
+        // Capture Search Criteria
+        let keyword = $("#search-term").val();       
         let numArticles = parseInt($("#num-records").val());
         let startYear = $("#start-year").val();
         let endYear = $("#end-year").val();
 
         // Construct endpoint for ajax call
-        let queryURL = "https://api.nytimes.com/svc/search/v2/articlesearch.json?api-key=" + apiKey + "&q=" + query;
+        let queryURL = "https://api.nytimes.com/svc/search/v2/articlesearch.json?api-key=" + apiKey + "&q=" + keyword;
         
         if(startYear != "" && endYear != ""){
             queryURL += beginDate + startYear + "0101"  // append to endpoint url
